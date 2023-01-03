@@ -11,7 +11,6 @@ export const load = (async ({ url, cookies }) => {
     if (!code) throw error(400, 'Bad request');
 
     let buff = Buffer.from(clientId + ':' + clientSecret)
-    console.log(buff.toString('base64'))
 
     const res = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
@@ -30,7 +29,6 @@ export const load = (async ({ url, cookies }) => {
     if (data.error) throw redirect(303, '/');
     
     cookies.set('access_token', data.access_token)
-    console.log(data)
 
     throw redirect(303, '/playlists');
  

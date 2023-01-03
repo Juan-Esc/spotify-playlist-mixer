@@ -6,7 +6,7 @@ export const actions: Actions = {
     default: async (event) => {
         // TODO log the user in
         var state = generateRandomString(16);
-        var scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative';
+        var scope = 'user-read-private user-read-email playlist-read-private playlist-read-collaborative playlist-modify-private';
 
         throw redirect(303, 'https://accounts.spotify.com/authorize?' + stringify({
             response_type: 'code',

@@ -14,7 +14,7 @@
                 {#each data.collabPlaylists as collabPlaylist}
 				<tr class="active">
 					<td>{ collabPlaylist.name }</td>
-                    <td><a href="/playlists/id" class="btn btn-success">Fair mix</a></td>
+                    <td><a href="/playlists/{ collabPlaylist.id }" class="btn btn-success">Fair mix</a></td>
 				</tr>
                 {/each}
 			</tbody>

@@ -27,3 +27,24 @@ export const getAllUserPlaylists = (async (accessToken : string) => {
    
     return playlists;
 })
+
+export const createMixedPlaylist = (async (accessToken : string, playlistName : string, playlistId : string) => {
+    let response = await spotifyApi(accessToken).createPlaylist(playlistName, { 'description': 'A playlist created by Spotify Together', 'public': false });
+    let newPlaylistId = response.body.id;
+    let offset = 0;
+    let response2;
+    do {
+        response2 = await spotifyApi(accessToken).getPlaylistTracks(playlistId, { limit: 50, offset });
+        offset = offset + 50;
+
+        let tracks : string[] = [];
+        response2.body.items.forEach((track) => {
+            if (track.track) tracks.push(track.track.uri);
+        })
+
+        await spotifyApi(accessToken).addTracksToPlaylist(newPlaylistId, tracks);
+    }while(response2.body.next != null);
+
+
+
+})
