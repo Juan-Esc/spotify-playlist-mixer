@@ -1,4 +1,5 @@
 import SpotifyWebApi from 'spotify-web-api-node';
+import { dev } from '$app/environment';
 
 export const spotifyApi = ((accessToken: string) => {
     let spotifyApi = new SpotifyWebApi({
@@ -12,7 +13,7 @@ export const spotifyApi = ((accessToken: string) => {
 
 export const clientId = 'abd30f42d9ff4a019618e84d9e3cd521';
 export const clientSecret = '22ded579b55b446dafb697bd223f9bf1'
-export const redirectUri = 'http://localhost:5173/callback'
+export const redirectUri = (dev) ? 'http://localhost:5173/callback' : 'https://spotify-together-k6x1dg1h1-juan-esc.vercel.app/callback'
 
 export const getAllUserPlaylists = (async (accessToken: string) => {
     let playlists = [];
