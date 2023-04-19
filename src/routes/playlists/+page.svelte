@@ -4,9 +4,10 @@
     export let data: PageData;
   </script>
 
-<div class="grid h-screen place-items-center">
+<div class="grid h-screen place-items-center text-center">
 	<div class="overflow-x-auto">
-        <h2>Your collaborative playlists</h2>
+        <h1>Your collaborative playlists</h1>
+		Select one to start mixing!
 		<table class="table w-full">
 			<!-- head -->
 			<tbody>

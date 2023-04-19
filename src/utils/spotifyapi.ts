@@ -1,5 +1,6 @@
 import SpotifyWebApi from 'spotify-web-api-node';
 import { dev } from '$app/environment';
+import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REDIRECT_URI } from '$env/static/private';
 
 export const spotifyApi = ((accessToken: string) => {
     let spotifyApi = new SpotifyWebApi({
@@ -11,10 +12,15 @@ export const spotifyApi = ((accessToken: string) => {
     return spotifyApi;
 })
 
-export const clientId = 'abd30f42d9ff4a019618e84d9e3cd521';
-export const clientSecret = '22ded579b55b446dafb697bd223f9bf1'
-export const redirectUri = (dev) ? 'http://localhost:5173/callback' : 'https://spotify-together.vercel.app/callback'
+export const clientId = SPOTIFY_CLIENT_ID
+export const clientSecret = SPOTIFY_CLIENT_SECRET
+export const redirectUri = (dev) ? 'http://localhost:5173/callback' : SPOTIFY_REDIRECT_URI
 
+/**
+ * Gets all playlists owned by user
+ * @param accessToken User's spotify access token
+ * @returns 
+ */
 export const getAllUserPlaylists = (async (accessToken: string) => {
     let playlists = [];
     let response, limit = 50, offset = 0;
@@ -29,6 +35,11 @@ export const getAllUserPlaylists = (async (accessToken: string) => {
     return playlists;
 })
 
+/**
+ * Mixes the given array of Tracks following the fair algorithm and returns a new array
+ * @param tracks Array of Tracks to mix
+ * @returns Mixed array of Tracks
+ */
 const mixPlaylist = (tracks: Track[]) => {
     // Crdeate a set to store the unique participant
     const uniqueParticipant = new Set<string>();
@@ -61,6 +72,12 @@ const mixPlaylist = (tracks: Track[]) => {
 
 }
 
+/**
+ * 
+ * @param accessToken User's spotify access token
+ * @param playlistName Playlist name
+ * @param playlistId Original playlist ID to get tracks of
+ */
 export const createMixedPlaylist = (async (accessToken: string, playlistName: string, playlistId: string) => {
     let response = await spotifyApi(accessToken).createPlaylist(playlistName, { 'description': 'A playlist created by Spotify Together', 'public': false });
     let newPlaylistId = response.body.id;

@@ -1,22 +1,28 @@
-# create-svelte
+# spotify-together
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Empowering Spotify's collaborative playlists feature
 
-## Creating a project
+## Installing and configuring
 
-If you're seeing this, you've probably already done this step. Congrats!
+Install dependencies with:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install
 ```
+
+Define the following environment variables:
+
+```
+SPOTIFY_CLIENT_ID
+SPOTIFY_CLIENT_SECRET
+SPOTIFY_REDIRECT_URI
+```
+
+You can create a `.env` file in the project root folder in order to define these variables. If you are deploying to a PaaS system you should learn how to define environment variables there.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start a development server:
 
 ```bash
 npm run dev
@@ -35,4 +41,3 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

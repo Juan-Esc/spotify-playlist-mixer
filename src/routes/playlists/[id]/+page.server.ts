@@ -5,8 +5,12 @@ import type { PageServerLoad } from '../$types';
 
 let id : string;
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, cookies }) => {
   id = params.id;
+
+  const accessToken = cookies.get('access_token')
+  if (!accessToken) throw redirect(303, '/');
+
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
