@@ -7,11 +7,11 @@
 <div class="grid h-screen place-items-center">
     <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
-          <h2 class="card-title">Pick up a name</h2>
+          <h2 class="card-title">Give a name to your newly mixed playlist</h2>
           <form method="POST">
             <input type="text" placeholder="Playlist name" class="input input-bordered w-full max-w-xs" name="playlistName" />
 
-            <p class="mt-3">A playlist with the same songs will be generated but with fair order</p>
+            <p class="mt-3">A playlist with the same songs will be generated but with a fair order</p>
 
             <div class="card-actions justify-end mt-5">
                 <button type="submit" class="btn btn-success">Generate playlist!</button>

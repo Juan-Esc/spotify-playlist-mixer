@@ -6,9 +6,9 @@
 
 <div class="grid h-screen place-items-center text-center">
 	<div class="overflow-x-auto">
-        <h1>Your collaborative playlists</h1>
-		Select one to start mixing!
-		<table class="table w-full">
+        <h1 class="text-2xl font-semibold"> Your collaborative playlists</h1>
+		Select the one you want to mix
+		<table class="table w-full mt-5">
 			<!-- head -->
 			<tbody>
 				<!-- row 1 -->

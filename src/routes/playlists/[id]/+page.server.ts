@@ -26,5 +26,6 @@ export const actions: Actions = {
     await createMixedPlaylist(accessToken, playlistName, id);
 
     console.log("Playlist creada")
+    throw redirect(301, `/playlists/${id}/success`)
   }
 };

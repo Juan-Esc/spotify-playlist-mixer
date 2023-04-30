@@ -1,7 +1,7 @@
 <div class="grid h-screen place-items-center text-center">
 	<form method="POST">
-		<h1 style="font-size: 30px; font-weight: 600;" >Spotify Together</h1>
-		<h2>Mix collaborative playlists in a fair way</h2>
+		<h1 class="text-4xl mb-2 font-semibold" >Spotify Together</h1>
+		<h2 class="mb-7">Mix collaborative playlists in a fair way</h2>
 		<button type="submit" class="btn btn-success">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
